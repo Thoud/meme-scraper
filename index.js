@@ -22,21 +22,15 @@ fetch('https://memegen-link-examples-upleveled.netlify.app/')
       imgUrlArr.push($('img', body)[i].attribs.src);
     }
 
-    // Fetching first 10 img-contents from img URL
+    // Fetching first 10 img-contents from img URL and saving them
     for (let i = 0; i < 10; i++) {
-      fetch(imgUrlArr[i])
-        .then((res) => res.text())
-        .then((imgContent) => {
-          const filename = imgUrlArr[i]
-            .split('?')[0]
-            .split('/')
-            .slice(4)
-            .join('_');
-          // ! Herausfinden warum die Memes nicht geöffnet werden können
-          fs.writeFile('./meme_folder/' + filename, imgContent, (err) => {
-            if (err) return console.log(err);
-            console.log('File created');
-          });
-        });
+      fetch(imgUrlArr[i]).then((res) => {
+        const path =
+          './meme_folder/' +
+          imgUrlArr[i].split('?')[0].split('/').slice(4).join('_');
+
+        const dest = fs.createWriteStream(path);
+        res.body.pipe(dest);
+      });
     }
   });
