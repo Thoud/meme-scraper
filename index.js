@@ -26,6 +26,17 @@ fetch('https://memegen-link-examples-upleveled.netlify.app/')
     for (let i = 0; i < 10; i++) {
       fetch(imgUrlArr[i])
         .then((res) => res.text())
-        .then((imgContent) => console.log(imgContent));
+        .then((imgContent) => {
+          const filename = imgUrlArr[i]
+            .split('?')[0]
+            .split('/')
+            .slice(4)
+            .join('_');
+          // ! Herausfinden warum die Memes nicht geöffnet werden können
+          fs.writeFile('./meme_folder/' + filename, imgContent, (err) => {
+            if (err) return console.log(err);
+            console.log('File created');
+          });
+        });
     }
   });
