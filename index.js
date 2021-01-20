@@ -33,4 +33,6 @@ fetch('https://memegen-link-examples-upleveled.netlify.app/')
         res.body.pipe(dest);
       });
     }
+
+    console.log('Images downloaded successfully!');
   });
