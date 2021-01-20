@@ -1,6 +1,16 @@
 // Dependencies
 const fetch = require('node-fetch');
 const $ = require('cheerio');
+const fs = require('fs');
+
+// Creating a new folder for saving the loaded images
+try {
+  if (!fs.existsSync('./meme_folder')) {
+    fs.mkdirSync('./meme_folder');
+  }
+} catch (err) {
+  console.error(err);
+}
 
 // Fetching HTML from URL and saving the img URLs into the array
 fetch('https://memegen-link-examples-upleveled.netlify.app/')
@@ -19,5 +29,3 @@ fetch('https://memegen-link-examples-upleveled.netlify.app/')
         .then((imgContent) => console.log(imgContent));
     }
   });
-
-// Todo: naming the folder "meme_folder"
