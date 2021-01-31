@@ -1,2 +1,3 @@
 # meme-scraper
- Simple Meme Scraper to request Memes and storing them on a local file
+
+ Simple meme scraper to request memes and store them in local files
