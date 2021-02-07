@@ -5,7 +5,7 @@
   "author": "Robert Miron <73788820+Thoud@users.noreply.github.com>",
   "license": "MIT",
   "devDependencies": {
-    "@types/node-fetch": "^2.5.8",
+    "@types/node-fetch": "2.5.8",
     "@typescript-eslint/eslint-plugin": "4.14.2",
     "@typescript-eslint/parser": "4.14.2",
     "@upleveled/eslint-config-upleveled": "1.5.17",
