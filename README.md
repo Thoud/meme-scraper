@@ -7,9 +7,17 @@
 - [node-fetch](https://www.npmjs.com/package/node-fetch)
 - [cheerio](https://www.npmjs.com/package/cheerio)
 
+## Setup
+
+```sh
+git clone https://github.com/Thoud/meme-scraper
+cd meme-scraper
+yarn or npm install
+```
+
 ## Usage
 
-```terminal
+```sh
 node index.js
 ```
 
